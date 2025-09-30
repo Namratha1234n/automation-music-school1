@@ -19,21 +19,20 @@ public class SchoolManagementTests {
 
     @BeforeClass
     public void setUp() {
-        // Setup ChromeDriver with WebDriverManager for version compatibility
+        
         WebDriverManager.chromedriver().setup();
 
-        // Configure ChromeOptions
+        
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        // Mitigate WebSocket / WebDriver connection issues
+     
         options.addArguments("--disable-web-security");
         options.addArguments("--allow-insecure-localhost");
         options.addArguments("--disable-blink-features=AutomationControlled");
-        // Uncomment below for headless execution
-        // options.addArguments("--headless");
+        
 
-        // Initialize WebDriver
+        
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
 
@@ -54,12 +53,12 @@ public class SchoolManagementTests {
 
     @Test
     public void testAddStudent() {
-        // Login steps
+    
         loginPage.enterEmail("your_email@example.com");
         loginPage.enterPassword("your_password");
         loginPage.clickSignInButton();
 
-        // Example: Fill in student details
+       
         addStudentPage.fillBasicInfo("John", "Doe", "john.doe@example.com", "1234567890");
         addStudentPage.selectStudentType("child");
         addStudentPage.selectFamilyOption("new");
